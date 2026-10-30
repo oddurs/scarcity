@@ -1,0 +1,30 @@
+% Figure: the hidden abundance behind a solar kit. Shares are China's share of
+% global manufacturing capacity in 2021 (data/manual/literature_figures.csv).
+\begin{tikzpicture}[
+  node distance=4mm and 10mm,
+  up/.style={concept, text width=0.36\linewidth, align=flush left, font=\sffamily\footnotesize},
+  stat/.style={font=\sffamily\footnotesize\bfseries, text=indigo},
+]
+  \node[up] (pv) {\textbf{Solar PV manufacturing}\\[2pt]
+    China's share of capacity: polysilicon \pvPolysiliconShare{},
+    wafers \pvWaferShare{}, cells \pvCellShare{}, modules \pvModuleShare{}};
+  \node[up, below=of pv] (batt) {\textbf{Battery manufacturing}\\[2pt]
+    \batteryCapacityShare{} of global battery production capacity in China,
+    built for electric vehicles};
+  \node[up, below=of batt] (chips) {\textbf{LEDs and control chips}\\[2pt]
+    Semiconductor fabs and decades of lighting research};
+  \node[up, below=of chips] (net) {\textbf{Mobile networks and mobile money}\\[2pt]
+    Towers, handsets, SIMs and payment rails, for pay-as-you-go};
+
+  \node[concept accent, text width=0.2\linewidth, right=14mm of $(batt.east)!0.5!(chips.east)$] (kit)
+    {\textbf{Solar home kit}\\[2pt] panel, battery, lights, phone charger};
+  \node[concept counter, text width=0.17\linewidth, right=8mm of kit] (home)
+    {\textbf{Off-grid household}\\[2pt] pays a little each week};
+
+  \foreach \n in {pv, batt, chips, net} \draw[flow] (\n.east) -- (kit.west);
+  \draw[flow, draw=clay] (kit) -- (home);
+
+  \node[note, below=3mm of $(kit.south)!0.5!(home.south)$, text width=0.4\linewidth] {Assembled, sold and financed under scarcity};
+  \node[note, anchor=north west, text width=0.36\linewidth, align=left] at ($(net.south west)+(0,-2mm)$)
+    {Built by abundance. Module costs fell \moduleCostFall{} between 2009 and 2023.};
+\end{tikzpicture}

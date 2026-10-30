@@ -1,0 +1,48 @@
+macro,value,unit,fmt,year,source_key,page,notes
+mpesaHouseholdsLifted,194000,households,int,2014,suri2016,1288,"Abstract: 'lifted 194,000 households, or 2% of Kenyan households, out of poverty'"
+mpesaHouseholdsShare,2,% of Kenyan households,pct,2014,suri2016,1288,Same sentence
+mpesaWomenMoved,185000,women,int,2014,suri2016,1288,"Women moving from farming into business occupations (extrapolated estimate)"
+dfidGrant,910000,GBP,gbp,2005,phillips2013dfid,web,"'a contribution of £910,000 from DFID'"
+vodafoneMatch,990000,GBP,gbp,2005,phillips2013dfid,web,"'and £990,000 from Vodafone'"
+mooserWattsLow,40,W,int,2013,zobel2013bbc,web,"Moser quoted: 'more or less 40 to 60 watts'"
+mooserWattsHigh,60,W,int,2013,zobel2013bbc,web,Same quote
+literHomesPhilippines,140000,homes,int,2013,zobel2013bbc,web,"'Moser lamps now fitted in 140,000 homes' (Philippines, as reported Aug 2013)"
+literCountries,15,countries,int,2013,zobel2013bbc,web,"'about 15 other countries'"
+aravindCostPerOp,120,USD,usd,2016,le2016aravind,1783,"Abstract: 'Total costs per operation were US$120'"
+aravindCostPerQaly,195,USD,usd,2016,le2016aravind,1783,"'or $195 per quality-adjusted life-year gained'"
+aravindSurgeries,5,million surgeries and laser procedures,millions,2014,ravilla2014,7,More than 5 million since 1976
+aravindStartBeds,11,beds,int,1976,ravilla2014,7,Began as an 11-bed hospital
+jaipurCostOrig,2,GBP,gbp,1978,sethi1978,125,"'these feet cost only about [£]2.00 (sterling)'; currency sign garbled in online text"
+jaipurAmputees,1000,amputees,int,1978,sethi1978,125,Tested in 'more than a thousand amputees'
+embraceCostLow,25,USD,usd,2011,routson2011embrace,web,"'$25 to $100'"
+embraceCostHigh,100,USD,usd,2011,routson2011embrace,web,Same range
+incubatorCost,20000,USD,usd,2011,routson2011embrace,web,"Conventional incubators 'cost up to $20,000'"
+icelandGeoHeating,90,% of domestic heating energy,pct,2020,orkustofnun_heating,web,"'About 90% of the energy used for domestic heating'"
+icelandDistrictHeating,95,% of population,pct,2020,orkustofnun_heating,web,District heating utilities supply 95% of the population
+adoptionLagYears,45,years,int,2010,comin2010,2031,Average adoption lag after invention (abstract)
+adoptionIncomeShare,25,% of income differences,pct,2010,comin2010,2031,'at least 25%' of per-capita income differences
+geEcgPrice,1000,USD,usd,2009,immelt2009,web,Handheld ECG developed for rural India
+geUltrasoundPrice,15000,USD,usd,2009,immelt2009,web,"PC-based portable ultrasound 'for as little as $15,000'"
+pvPolysiliconShare,79,% of global polysilicon capacity in China,pct,2021,iea2022pv,58,
+pvWaferShare,97,% of global wafer capacity in China,pct,2021,iea2022pv,58,
+pvCellShare,85,% of global cell capacity in China,pct,2021,iea2022pv,58,Capacity; share of production 'almost 80%' (p. 26)
+pvModuleShare,75,% of global module capacity in China,pct,2021,iea2022pv,59,
+batteryCapacityShare,76,% of global EV battery production capacity in China,pct,2021,iea2022evbatt,36,China box; printed p. 34. Text p. 31: 'Three-quarters of battery cell production capacity is in China'
+moduleCostFall,93,% fall in weighted-average module cost Dec 2009 to Dec 2023,pct,2023,irena2024costs,82,
+paygDisabledShare,10,% of PAYG customers disabled for missed payment,pct,2020,barry2020,ms,"Author manuscript (HAL): 'only 10% of consumers are disabled due to a discontinued payment'"
+kenyaPhoneOwners,27,% of Kenyans owning a mobile phone,pct,2006,afi2010,11,"FinAccess 2006, printed p. 09; a further 27% had access to someone else's phone"
+nhsCataractTariff,699,GBP,gbp,2014,monitor2014tariff,Annex 5A row 80,"HRG BZ02Z phacoemulsification with lens implant, day case/elective, 2014/15"
+aravindPcrRate,1.37,% of eyes with posterior capsule rupture,pct2,2018,haripriya2019,abstract,"2,062,643 eyes, 2011-2018"
+usProsthesisLow,2845,USD,usd,2026,cms2026dmepos,L5100,Medicare allowance for basic below-knee prosthesis; lowest state
+usProsthesisHigh,3794,USD,usd,2026,cms2026dmepos,L5100,Highest state
+swedenProsthesisCost,898,USD,usd,1997,hermodsson1998,605,Median cost per transtibial prosthesis (1997 prices)
+bmvssLimbs,724503,limbs,int,2026,bmvss2026,web,"'724503+ Limbs' provided up to now; counter undated"
+embraceTrialSize,120,newborns,int,2021,morgaonkar2021,abstract,Randomised trial during transport
+rubberLostShare,90,% of pre-war US natural rubber supply lost to Japan,pct,1942,baruch1942rubber,26,"Printed p. 24: 'Having lost to Japan 90 percent of our pre-war source of natural rubber'"
+icelandGeoStart,49.6,% of heated building volume geothermal,pct1,1970,orkustofnun2020heating,1,Table OS-2020-T008-01
+icelandGeoMid,74.2,% of heated building volume geothermal,pct1,1980,orkustofnun2020heating,1,
+icelandGeoEnd,79.9,% of heated building volume geothermal,pct1,1985,orkustofnun2020heating,1,
+icelandOilStart,46.0,% of heated building volume oil,pct1,1970,orkustofnun2020heating,1,'Other' column is oil per table note
+icelandOilMid,14.2,% of heated building volume oil,pct1,1980,orkustofnun2020heating,1,
+icelandOilEnd,6.2,% of heated building volume oil,pct1,1985,orkustofnun2020heating,1,
+ukPcrBenchmark,1.1,% consultant posterior capsule rupture benchmark,pct1,2020,buchan2020nod,Results,"'the overall consultant rate of 1.1% used in The National Cataract Audit'"

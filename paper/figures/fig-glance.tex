@@ -1,0 +1,18 @@
+% At-a-Glance headline chart: Kenya, mobile money vs bank accounts.
+% Data: data/processed/findex_accounts.csv.
+\begin{tikzpicture}
+\begin{axis}[
+  scarcity axis, year axis,
+  width=0.82\linewidth, height=0.62\linewidth,
+  xmin=2011, xmax=2024, xtick={2011,2017,2024},
+  ymin=0, ymax=100, ytick={0,50,100},
+  unbounded coords=jump,
+  title={Kenya, \% of adults},
+  title style={font=\sffamily\scriptsize, anchor=south west, at={(0,1.02)}},
+]
+  \addplot[series primary, mark=*, mark size=1.3pt] table[x=year, y=ken_mm, col sep=comma] {../data/processed/findex_accounts.csv}
+    node[end label, pos=1, text=indigo] {Mobile\\money};
+  \addplot[series accent, mark=square*, mark size=1.2pt, mark options={solid}] table[x=year, y=ken_fi, col sep=comma] {../data/processed/findex_accounts.csv}
+    node[end label, pos=1, text=amber!70!ink] {Bank};
+\end{axis}
+\end{tikzpicture}

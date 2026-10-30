@@ -112,8 +112,8 @@ first had them.
 | Aravind complications "half the NHS rate" | Only a Bridgespan case study; full Le et al. text paywalled | UNVERIFIED | `\placeholder` |
 | Embrace warmer $25 vs $20,000 incubator | Stanford GSB 2011: "$25 to $100" vs "up to $20,000". No clinical trials published (Nimbalkar et al. 2014) | PARTIAL (`routson2011embrace`, `nimbalkar2014`) | Say "$25–$100 (2011 estimate)". $25 is the bottom of a range |
 | NeoNurture (car-part incubator) failed to reach adoption | Prototype target under $1,000 vs $30,000+ (Sci Am blog, 2008). The failure framing has no primary source here | UNVERIFIED | Possible survivorship-bias example. Needs a source |
-| WWII synthetic rubber: "800,000+ tons by 1945" | **Not an ACS figure.** ACS: from "231 tons … in 1941 to … 70,000 tons a month in 1945". Annual 1945 GR-S ~756,000 long tons is secondary (ICIS) | PARTIAL (`acs1998rubber`, `herbert1985`) | Use the ACS run-rate wording |
-| Iceland oil share of heating, 53% (1970) to 7% (1982) | Icelandic Times (secondary) | UNVERIFIED | Find an Orkustofnun or WGC country-update paper |
+| WWII synthetic rubber output figures | ACS wording ("231 tons … 1941 … 70,000 tons a month in 1945") seen only in search extracts; acs.org blocks automated access and no archived copy was found | UNVERIFIED | **Dropped.** The paper uses the verified Baruch committee figure (90% of pre-war natural rubber supply lost) and `herbert1985` |
+| Iceland oil share of heating | Orkustofnun table OS-2020-T008-01 (share of heated building volume): geothermal 49.6/74.2/79.9%, oil 46.0/14.2/6.2% in 1970/1980/1985 | VERIFIED (`orkustofnun2020heating`) | Used. The Icelandic Times "53% to 7%" is not used |
 | CHAT: average adoption lag ~45 years | Comin & Hobijn 2010, AER abstract | VERIFIED (`comin2010`) | Use |
 
 ## 4. Not yet checked
@@ -126,3 +126,25 @@ first had them.
 - Hidden-abundance supply chain (semiconductors, lithium, the PV module supply
   chain): candidates are the IEA *Solar PV Global Supply Chains* (2022) and the USGS
   Mineral Commodity Summaries. **To research before §4.**
+
+## 5. Sources added while drafting (all VERIFIED against the primary document)
+
+Every quantity from these is in `data/manual/literature_figures.csv` with its
+page. Keys refer to `paper/references.bib`.
+
+| Topic | Keys | What we use |
+|---|---|---|
+| Solar PV and battery supply chains | `iea2022pv`, `iea2022evbatt`, `irena2024costs` | China's 2021 share of capacity by stage (PDF pp. 58–59); 76% of battery production capacity (PDF p. 36); module costs fell 93%, 2009–2023 (p. 82) |
+| Evidence on off-grid solar and the grid | `grimm2017`, `aklin2017`, `barry2020`, `lee2020` | Abstract-level findings only; Barry & Creti's 10% from the author manuscript |
+| M-Pesa conditions | `afi2010` | CBK letter of no objection (Feb 2007); 27% phone ownership in 2006 (PDF p. 11) |
+| GSMA regional figures | `gsma2026sotir` | SSA 1.2bn registered, $1.4tn value (PDF p. 11, infographic labels) |
+| Slack and innovation; psychology of poverty | `nohria1996`, `haushofer2014` | Abstract-level findings |
+| Cataract cost and quality | `monitor2014tariff`, `haripriya2019`, `buchan2020nod` | NHS 2014/15 tariff £699 (BZ02Z); Aravind PCR 1.37%; UK consultant benchmark 1.1% |
+| Prosthesis cost; Jaipur Foot reach | `hermodsson1998`, `cms2026dmepos`, `bmvss2026` | Median $898 (Sweden, 1997); Medicare L5100 $2,845–$3,794 (2026); 724,503+ limbs |
+| Embrace evidence; NeoNurture | `morgaonkar2021`, `gopalakrishnan2022`, `prestero2012ted` | Trial findings (abstracts); Prestero's own account |
+| History | `baruch1942rubber`, `ragnars1980`, `orkustofnun2020heating` | 90% of rubber lost; Reykjavík citywide in the 1960s; heating shares |
+| Bottle light at night | `npr2011literoflight` | "the bottles don't shine in the night" |
+
+Still partial and therefore **not** used as figures: Vodafone's exact 2007
+stake in Safaricom (35–40%); M-Pesa Romania's closure; US Medicare payment for
+cataract surgery; UNICEF/UNFPA incubator catalogue prices.

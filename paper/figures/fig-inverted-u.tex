@@ -1,0 +1,24 @@
+% Figure: the inverted U proposed in the constraints literature. Conceptual:
+% the curve is drawn, not estimated, and has no units.
+\begin{tikzpicture}
+\begin{axis}[
+  scarcity axis,
+  width=0.86\linewidth, height=0.46\linewidth,
+  xmin=0, xmax=10, ymin=0, ymax=10.5,
+  xtick=\empty, ytick=\empty, ymajorgrids=false,
+  xlabel={Tightness of constraint \quad (slack $\rightarrow$ severe)},
+  ylabel={Novel, useful output},
+  axis lines=left, axis line style={draw=stone, -{Stealth[length=4pt]}}, axis on top,
+]
+  % Shaded zones
+  \fill[indigowash] (axis cs:0,0) rectangle (axis cs:3,10.5);
+  \fill[amberwash] (axis cs:3,0) rectangle (axis cs:7,10.5);
+  \fill[claywash] (axis cs:7,0) rectangle (axis cs:10,10.5);
+  \addplot[series primary, domain=0:10, samples=100, smooth] {1.6 + 6.2*exp(-((x-4.8)^2)/7)};
+
+  \node[note, text=indigo, text width=26mm] at (axis cs:1.5,9.4) {\textbf{Slack}\\ the path of least resistance: copy what exists};
+  \node[note, text=amber!70!ink, text width=34mm] at (axis cs:5,9.95) {\textbf{Moderate}\\ familiar paths blocked; problem reframed};
+  \node[note, text=clay, text width=26mm] at (axis cs:8.5,9.4) {\textbf{Severe}\\ attention consumed by the shortfall; going without};
+  \node[note, anchor=south east, font=\sffamily\scriptsize\itshape] at (axis cs:10,0.2) {Conceptual sketch, not data};
+\end{axis}
+\end{tikzpicture}

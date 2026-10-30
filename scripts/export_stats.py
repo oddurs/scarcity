@@ -156,12 +156,43 @@ STATS: list[Stat] = [
     Stat("sdgWithoutElecWorld", HEAD, headline("people_without_electricity", "World", 2024), m_whole, "Tracking SDG7 2026: people without electricity, world, 2024"),
     Stat("sdgWithoutElecSSA", HEAD, headline("people_without_electricity", "Sub-Saharan Africa", 2024), m_whole, "Tracking SDG7 2026: people without electricity, SSA, 2024"),
     Stat("sdgOffgridServed", HEAD, headline("people_served_offgrid_solar_tier1_2", "World", 2024), m_whole, "Tracking SDG7 2026: Tier 1-2 off-grid solar, world, 2024"),
+    Stat("sdgOffgridServedPrev", HEAD, headline("people_served_offgrid_solar_tier1_2", "World", 2023), m_whole, "Tracking SDG7 2026: Tier 1-2 off-grid solar, world, 2023"),
+    Stat("sdgOffgridBackupShare", HEAD, headline("offgrid_solar_users_using_as_backup", "World", 2024), pct, "Tracking SDG7 2026: share of off-grid solar users using it as grid backup"),
+    Stat("goglaYear", HEAD, lambda d: d.loc[d["series"] == "solar_energy_kits_sold", "year"].item(), year, "GOGLA report year"),
     Stat("goglaKitsSold", HEAD, headline("solar_energy_kits_sold", "World", 2025), m_one, "GOGLA: solar kits sold by affiliates, 2025"),
     Stat("goglaPeopleServed", HEAD, headline("people_served_gogla_affiliates", "World", 2025), m_whole, "GOGLA: people served by affiliates, 2025"),
     Stat("gsmaRegisteredAccounts", HEAD, headline("mobile_money_registered_accounts", "World", 2025), lambda v: f"{v:.1f}~billion", "GSMA: registered mobile money accounts, 2025"),
+    Stat("gsmaRegisteredSSA", HEAD, headline("mobile_money_registered_accounts", "Sub-Saharan Africa", 2025), lambda v: f"{v:.1f}~billion", "GSMA: registered accounts, SSA, 2025"),
+    Stat("gsmaValueSSA", HEAD, headline("mobile_money_transaction_value", "Sub-Saharan Africa", 2025), lambda v: f"\\${v:.1f}~trillion", "GSMA: transaction value, SSA, 2025"),
     Stat("gsmaActiveAccounts", HEAD, headline("mobile_money_active_30day_accounts", "World", 2025), m_whole, "GSMA: 30-day active accounts, 2025"),
     Stat("gsmaTransactionValue", HEAD, headline("mobile_money_transaction_value", "World", 2025), lambda v: f"\\${v:.1f}~trillion", "GSMA: transaction value, 2025"),
 ]
+
+
+LITERATURE_FORMATS: dict[str, Callable[[float], str]] = {
+    "int": number,
+    "pct": pct,
+    "pct1": lambda v: pct(v, 1),
+    "pct2": lambda v: pct(v, 2),
+    "usd": lambda v: f"\\$\\num{{{v:.0f}}}",
+    "gbp": lambda v: f"£\\num{{{v:.0f}}}",
+    "millions": lambda v: f"{v:.0f}~million",
+}
+
+
+def literature_stats() -> list[Stat]:
+    """One macro per row of the hand-entered literature figures."""
+    path = PROCESSED / "literature_figures.csv"
+    if not path.exists():
+        return []
+    rows = pd.read_csv(path)
+    return [
+        Stat(r.macro, "literature_figures.csv",
+             lambda d, m=r.macro: d.loc[d["macro"] == m, "value"].item(),
+             LITERATURE_FORMATS[r.fmt],
+             f"{r.unit}, {r.year} ({r.source_key}, p. {r.page})")
+        for r in rows.itertuples()
+    ]
 
 
 def main() -> None:
@@ -169,7 +200,8 @@ def main() -> None:
         "% generated/stats.tex — written by scripts/export_stats.py. Do not edit.",
         "",
     ]
-    for stat in sorted(STATS, key=lambda s: s.macro):
+    stats = STATS + literature_stats()
+    for stat in sorted(stats, key=lambda s: s.macro):
         if not stat.macro.isalpha():
             raise ValueError(f"macro names must be letters only: {stat.macro}")
         frame = pd.read_csv(PROCESSED / stat.csv)
@@ -178,7 +210,7 @@ def main() -> None:
         lines.append(f"\\newcommand{{\\{stat.macro}}}{{{stat.fmt(value)}}}")
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text("\n".join(lines) + "\n")
-    print(f"stats: {len(STATS)} macros -> {OUT.relative_to(ROOT)}")
+    print(f"stats: {len(stats)} macros -> {OUT.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

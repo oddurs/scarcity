@@ -1,0 +1,107 @@
+% 3.1 Lighting and energy
+\subsection{Lighting and energy}
+\label{sec:lighting}
+
+Start with the problem the bottle light only half solves. In sub-Saharan
+Africa the share of people with electricity has risen a long way, from
+\sspElecAccessStart{} in \sspElecStartYear{} to \sspElecAccess{} in
+\sspElecYear{}, and in rural areas it is only \sspRuralElecAccess{}
+\parencite{worldbank_wdi}. The standard answer to that gap is the grid:
+generate power centrally and run wires to every home. It is a good answer, and
+in the long run probably the best one. But it is slow and capital-hungry, and
+for a family in a village far from the nearest line, it is not an answer they
+can do anything about.
+
+What they could do something about, from around the late 2000s, was a small
+solar kit: a panel the size of a book, a battery, a few LED lamps and a USB
+port for charging a phone. This is the reframing step in its clearest form.
+The question stops being how do we connect this house to the grid?'' and
+becomes what does this house need electricity \emph{for}?'' For many
+households the first answers are light after dark and a charged phone, and
+those need a few watts, not a grid connection. The kits got cheap because the
+parts got cheap. Solar cells, LEDs and lithium batteries all fell in price
+through the 2010s, for reasons that had nothing to do with African villages
+and that I come back to in \cref{sec:against}.
+
+The second reframing was financial. A kit that costs more than a month's
+income is out of reach even if it pays for itself in saved kerosene within a
+year. Pay-as-you-go companies solved this by letting customers pay in small
+instalments, often daily or weekly, through mobile money, with the kit locking
+itself if payments stop. One scarcity-born innovation was built on top of
+another: without M-Pesa and its cousins (\cref{sec:money}) there would be no
+practical way to collect thousands of tiny payments from people without bank
+accounts.
+
+The result is real growth. In sub-Saharan Africa the number of people using
+off-grid solar grew from about \sspSolarUsersStart{} in \sspSolarStartYear{}
+to \sspSolarUsers{} in \sspSolarYear{}, and the number using solar home
+systems, the larger kits that come closest to genuine household electricity,
+went from \sspShsUsersStart{} to \sspShsUsers{}
+\parencite{irena2025offgrid}. Those figures are based mostly on sales reported
+by members of the industry association, and therefore undercount. The
+whole-market estimate in the official tracking report is that
+\sdgOffgridServed{} people worldwide were served by off-grid solar at the
+first or second tier of access in \sspSolarYear{}, up from
+\sdgOffgridServedPrev{} a year earlier \parencite{esmap2026sdg7}. In
+\goglaYear{} alone, industry members sold \goglaKitsSold{} kits
+\parencite{gogla2026}.
+
+\begin{figure}[htbp]
+\centering
+\input{figures/fig-electricity-access}
+\caption{\takeaway{The share of people with electricity has doubled; the
+number without it has not fallen.} In sub-Saharan Africa (SSA), access rose from
+\sspElecAccessStart{} in \sspElecStartYear{} to \sspElecAccess{} in
+\sspElecYear{}, but population grew almost as fast: about
+\sspWithoutElec{} people still had no electricity in \sspElecYear{}, against
+\sspWithoutElecStart{} in \sspElecStartYear{}. Headcount is population times
+the share without access, rounded to the nearest 5~million; the official
+estimate for \sspElecYear{} is \sdgWithoutElecSSA{} \parencite{esmap2026sdg7}.
+Shaded bands: people using off-grid solar, which grew from
+\sspSolarUsersStart{} in \sspSolarStartYear{} to \sspSolarUsers{} in
+\sspSolarYear{}. Solar home systems (11\,W and up, roughly the first rung of
+real access) went from \sspShsUsersStart{} to \sspShsUsers{}; the rest are
+small lights. These counts rest mostly on sales by members of the industry
+association and undercount the whole market, perhaps several times over; some
+users are also on the grid and use solar as backup.
+\figsource{World Bank, World Development Indicators, series EG.ELC.ACCS.ZS,
+EG.ELC.ACCS.RU.ZS and SP.POP.TOTL \parencite{worldbank_wdi}; IRENA,
+Off-Grid Renewable Energy Statistics 2025, Africa less North Africa
+\parencite{irena2025offgrid}.}}
+\label{fig:electricity-access}
+\end{figure}
+What does this buy households? The careful evidence is more modest than the
+growth figures. In a randomised trial in rural Rwanda, a very small solar kit
+clearly cut household spending on energy, with some signs of benefits for
+health, domestic work and the environment, but the authors found that cost
+would hold back adoption without subsidies or financing \parencite{grimm2017}.
+A trial of basic solar microgrids in Uttar Pradesh found that they improved
+access to electricity affordably but generated few socioeconomic benefits
+\parencite{aklin2017}. Pay-as-you-go may not reach the poorest either: in a
+sample of over ten thousand customers in Benin, most lived in areas that
+already had the grid, and only \paygDisabledShare{} were ever cut off for
+missed payments, which the authors read as a sign that providers select
+creditworthy customers rather than bridging the ``last mile''
+\parencite{barry2020}. The grid does not obviously do better on this test.
+In an experiment in rural Kenya that offered grid connections at randomised
+prices, demand fell sharply with price, newly connected households used very
+little electricity, and the authors found no meaningful medium-run effects on
+economic or other outcomes \parencite{lee2020}. Small solar is not a weak
+substitute for a transformative grid; at the margin, both seem to deliver less
+than their advocates hoped.
+
+
+\begin{counterpoint}
+Look at the right-hand panel of \cref{fig:electricity-access} again. The bands
+for off-grid solar are growing quickly, but they sit at the bottom of a chart
+dominated by the \sspWithoutElec{} people who still have no electricity at all.
+The total is higher than it was in \sspElecStartYear{}, because population grew
+almost as fast as access. Most of the solar users counted here have small
+lights, which fall below even the lowest rung of what the international
+tracking framework counts as electricity access, and an estimated
+\sdgOffgridBackupShare{} of users are already on the grid and use solar as
+backup \parencite{esmap2026sdg7}. Off-grid solar is a real
+innovation and a genuine improvement for tens of millions of people. It is not
+yet a solution to energy poverty, and it may be closer to a better candle than
+to a substitute for the grid.
+\end{counterpoint}
