@@ -19,6 +19,7 @@ INDICATORS = {
     "SP.RUR.TOTL": "Rural population",
     "NY.GDP.PCAP.PP.KD": "GDP per capita, PPP (constant 2021 international $)",
     "IT.CEL.SETS.P2": "Mobile cellular subscriptions (per 100 people)",
+    "IT.MLT.MAIN.P2": "Fixed telephone subscriptions (per 100 people)",
 }
 
 # WLD world, SSF sub-Saharan Africa (all income levels), plus case countries.

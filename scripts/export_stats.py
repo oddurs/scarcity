@@ -69,6 +69,11 @@ def peak_year(column: str) -> Callable[[pd.DataFrame], float]:
     return lambda d: d.loc[d[column].idxmax(), "year"]
 
 
+def cell(economy: str, column: str) -> Callable[[pd.DataFrame], float]:
+    """One value from a per-economy summary table."""
+    return lambda d: d.set_index("economy").loc[economy, column]
+
+
 # ---- declarations ---------------------------------------------------------
 
 @dataclass(frozen=True)
@@ -82,6 +87,7 @@ class Stat:
 
 ELEC = "electricity_access.csv"
 FINDEX = "findex_accounts.csv"
+LEAP = "leapfrog_summary.csv"
 
 STATS: list[Stat] = [
     # Electricity access (World Bank WDI, EG.ELC.ACCS.ZS; SSF = sub-Saharan Africa)
@@ -111,6 +117,15 @@ STATS: list[Stat] = [
     Stat("ssaBankAccount", FINDEX, latest("ssa_fi"), pct, "SSA, financial institution account, latest"),
     Stat("ssaAnyAccount", FINDEX, latest("ssa_any"), pct, "SSA, any account, latest"),
     Stat("wldMobileMoney", FINDEX, latest("wld_mm"), pct, "World, mobile money account, latest"),
+
+    # Leapfrogging: subscriptions per 100 people (WDI IT.MLT.MAIN.P2, IT.CEL.SETS.P2)
+    Stat("sspFixedPeak", LEAP, cell("SSF", "fixed_peak"), lambda v: number(v, 1), "SSA fixed lines per 100, peak"),
+    Stat("sspFixedPeakYear", LEAP, cell("SSF", "fixed_peak_year"), year, "Year of that peak"),
+    Stat("sspMobileSubs", LEAP, cell("SSF", "mobile_latest"), number, "SSA mobile subscriptions per 100, latest"),
+    Stat("sspMobileSubsYear", LEAP, cell("SSF", "latest_year"), year, "Latest year of SSA subscriptions"),
+    Stat("kenFixedPeak", LEAP, cell("KEN", "fixed_peak"), lambda v: number(v, 1), "Kenya fixed lines per 100, peak"),
+    Stat("kenMobileSubs", LEAP, cell("KEN", "mobile_latest"), number, "Kenya mobile subscriptions per 100, latest"),
+    Stat("usaFixedPeak", LEAP, cell("USA", "fixed_peak"), number, "US fixed lines per 100, peak"),
 ]
 
 
