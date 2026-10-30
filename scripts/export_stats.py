@@ -81,6 +81,7 @@ class Stat:
 
 
 ELEC = "electricity_access.csv"
+FINDEX = "findex_accounts.csv"
 
 STATS: list[Stat] = [
     # Electricity access (World Bank WDI, EG.ELC.ACCS.ZS; SSF = sub-Saharan Africa)
@@ -95,6 +96,21 @@ STATS: list[Stat] = [
     Stat("sspWithoutElecStart", ELEC, first("ssf_without_m"), millions_from_m, "People in SSA without electricity, first year shown"),
     Stat("sspWithoutElecPeak", ELEC, peak("ssf_without_m"), millions_from_m, "People in SSA without electricity, peak"),
     Stat("sspWithoutElecPeakYear", ELEC, peak_year("ssf_without_m"), year, "Year of that peak"),
+
+    # Account ownership (Global Findex, db 28; SSA = sub-Saharan Africa excl. high income)
+    Stat("findexYear", FINDEX, latest_year("ken_any"), year, "Latest Findex survey year"),
+    Stat("kenAnyAccountStart", FINDEX, first("ken_any"), pct, "Kenya, any account, 2011"),
+    Stat("kenAnyAccount", FINDEX, latest("ken_any"), pct, "Kenya, any account, latest"),
+    Stat("kenMobileMoney", FINDEX, latest("ken_mm"), pct, "Kenya, mobile money account, latest"),
+    Stat("kenBankAccount", FINDEX, latest("ken_fi"), pct, "Kenya, financial institution account, latest"),
+    Stat("kenBankAccountPeak", FINDEX, peak("ken_fi"), pct, "Kenya, financial institution account, peak"),
+    Stat("kenBankAccountPeakYear", FINDEX, peak_year("ken_fi"), year, "Year of that peak"),
+    Stat("ssaMobileMoneyStart", FINDEX, first("ssa_mm"), pct, "SSA, mobile money account, first survey (2014)"),
+    Stat("ssaMobileMoneyStartYear", FINDEX, first_year("ssa_mm"), year, "First survey asking about mobile money"),
+    Stat("ssaMobileMoney", FINDEX, latest("ssa_mm"), pct, "SSA, mobile money account, latest"),
+    Stat("ssaBankAccount", FINDEX, latest("ssa_fi"), pct, "SSA, financial institution account, latest"),
+    Stat("ssaAnyAccount", FINDEX, latest("ssa_any"), pct, "SSA, any account, latest"),
+    Stat("wldMobileMoney", FINDEX, latest("wld_mm"), pct, "World, mobile money account, latest"),
 ]
 
 

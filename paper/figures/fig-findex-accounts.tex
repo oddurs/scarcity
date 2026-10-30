@@ -1,0 +1,30 @@
+% Figure: account ownership by type, Kenya and sub-Saharan Africa.
+% Data: data/processed/findex_accounts.csv (scripts/process_findex.py).
+% Findex surveys are years apart, so points are marked and joined only as a guide.
+\begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=2 by 1, horizontal sep=0.15\linewidth},
+  scarcity axis, year axis,
+  width=0.47\linewidth, height=0.42\linewidth,
+  xmin=2011, xmax=2024, xtick={2011,2014,2017,2021,2024},
+  ymin=0, ymax=100, ytick={0,25,50,75,100},
+  unbounded coords=jump,
+  title style={font=\sffamily\footnotesize, anchor=south west, at={(0,1.02)}, align=left},
+]
+  \nextgroupplot[title={Kenya (\% of adults)}]
+  \addplot[series context] table[x=year, y=ken_any, col sep=comma] {../data/processed/findex_accounts.csv}
+    node[end label, pos=1, anchor=south west, text=stone] {Any};
+  \addplot[series primary, mark=*, mark size=1.6pt] table[x=year, y=ken_mm, col sep=comma] {../data/processed/findex_accounts.csv}
+    node[end label, pos=1, anchor=north west, text=indigo] {Mobile\\money};
+  \addplot[series accent, mark=square*, mark size=1.4pt, mark options={solid}] table[x=year, y=ken_fi, col sep=comma] {../data/processed/findex_accounts.csv}
+    node[end label, pos=1, text=amber!70!ink] {Bank};
+
+  \nextgroupplot[title={Sub-Saharan Africa (\% of adults)}]
+  \addplot[series context] table[x=year, y=ssa_any, col sep=comma] {../data/processed/findex_accounts.csv}
+    node[end label, pos=1, text=stone] {Any};
+  \addplot[series primary, mark=*, mark size=1.6pt] table[x=year, y=ssa_mm, col sep=comma] {../data/processed/findex_accounts.csv}
+    node[end label, pos=1, anchor=south west, text=indigo] {Mobile\\money};
+  \addplot[series accent, mark=square*, mark size=1.4pt, mark options={solid}] table[x=year, y=ssa_fi, col sep=comma] {../data/processed/findex_accounts.csv}
+    node[end label, pos=1, anchor=north west, text=amber!70!ink] {Bank};
+\end{groupplot}
+\end{tikzpicture}
