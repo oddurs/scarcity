@@ -7,6 +7,7 @@
 #   make all      everything above
 #   make final    clean build, then fail on placeholders, TODOs or bad citations
 #   make clean    remove LaTeX build products (keeps cached downloads)
+#   make distclean  also remove cached downloads
 
 PYTHON  ?= python3
 LATEXMK ?= latexmk
@@ -19,18 +20,15 @@ export FORCE_SOURCE_DATE := 1
 FETCH   := $(sort $(wildcard scripts/fetch_*.py))
 PROCESS := $(sort $(wildcard scripts/process_*.py))
 
-.PHONY: all setup fonts data fetch process figures stats pdf final clean distclean
+.PHONY: all setup data fetch process figures stats pdf final clean distclean
 
 all: pdf
 
 setup:
 	$(PYTHON) -m pip install pandas wbgapi requests matplotlib
 
-fonts:
-	$(PYTHON) scripts/fetch_fonts.py
-
 fetch:
-	@for s in $(filter-out scripts/fetch_fonts.py,$(FETCH)); do echo "== $$s"; $(PYTHON) $$s || exit 1; done
+	@for s in $(FETCH); do echo "== $$s"; $(PYTHON) $$s || exit 1; done
 
 process: fetch
 	@for s in $(PROCESS); do echo "== $$s"; $(PYTHON) $$s || exit 1; done
@@ -42,7 +40,7 @@ stats: data
 
 figures: stats
 
-pdf: fonts figures
+pdf: figures
 	cd paper && $(LATEXMK) -r ../.latexmkrc main.tex
 	cp paper/build/main.pdf $(PDF)
 
@@ -56,5 +54,5 @@ clean:
 	rm -rf paper/build $(PDF)
 
 distclean: clean
-	rm -rf data/raw/* fonts
+	rm -rf data/raw/*
 	touch data/raw/.gitkeep

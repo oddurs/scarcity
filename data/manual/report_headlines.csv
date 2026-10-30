@@ -1,0 +1,10 @@
+series,entity,value,unit,year,source_key,page,notes
+people_without_electricity,World,655,million people,2024,esmap2026sdg7,21,Main messages; printed p. 11
+people_without_electricity,Sub-Saharan Africa,563,million people,2024,esmap2026sdg7,21,Printed p. 11
+people_served_offgrid_solar_tier1_2,World,449,million people,2024,esmap2026sdg7,32,Whole-market estimate: GOGLA affiliate sales scaled by ~29% market share; printed p. 22
+people_served_offgrid_solar_tier1_2,World,385,million people,2023,esmap2026sdg7,32,Printed p. 22
+solar_energy_kits_sold,World,10.2,million units,2025,gogla2026,5,GOGLA affiliates only
+people_served_gogla_affiliates,World,148,million people,2025,gogla2026,5,'over 148 million'; affiliates only
+mobile_money_registered_accounts,World,2.3,billion accounts,2025,gsma2026sotir,6,
+mobile_money_active_30day_accounts,World,593,million accounts,2025,gsma2026sotir,6,
+mobile_money_transaction_value,World,2.1,trillion USD,2025,gsma2026sotir,3,'More than $2.1 trillion'

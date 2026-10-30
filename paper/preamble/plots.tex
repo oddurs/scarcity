@@ -3,7 +3,7 @@
 % so colour, dash and marker always travel together.
 
 \pgfplotsset{compat=1.18}
-\usepgfplotslibrary{dateplot,fillbetween}
+\usepgfplotslibrary{dateplot,fillbetween,groupplots}
 \usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
 
 \pgfplotsset{
@@ -21,6 +21,8 @@
                   legend cell align=left},
     legend pos=north west,
     /pgf/number format/1000 sep={\,},
+    % Typeset tick numbers as sans text, not maths.
+    /pgf/number format/assume math mode=true,
     scaled ticks=false,
     clip=false,
   },
@@ -32,8 +34,6 @@
   series accent/.style={amber!85!ink, line width=1.4pt, dashed, mark=none},
   series counter/.style={clay, line width=1.2pt, dash dot, mark=none},
   series context/.style={stone, line width=0.8pt, densely dotted, mark=none},
-  % Direct labels at the end of a line beat legends.
-  end label/.style={anchor=west, font=\sffamily\scriptsize, inner sep=2pt},
   % Bars
   bar primary/.style={fill=indigo, draw=none},
   bar accent/.style={fill=amber, draw=none},
@@ -49,4 +49,6 @@
   flow/.style={-{Stealth[length=5pt]}, line width=0.8pt, draw=indigo},
   flow back/.style={flow, draw=amber!85!ink, dashed},
   note/.style={font=\sffamily\scriptsize, text=stone, align=center},
+  % Direct labels at the end of a line beat legends.
+  end label/.style={anchor=west, font=\sffamily\scriptsize, inner sep=2pt, align=left},
 }

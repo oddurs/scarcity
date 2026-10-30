@@ -4,10 +4,9 @@ Everything here is either unverified, a placeholder in the PDF, or a decision
 still open. `make final` fails while any `\placeholder{}` or `\todo{}` remains.
 
 ## Decisions for Oddur
-- [ ] Author line: surname and affiliation (title page shows `\placeholder{surname}`).
+- [x] Author: Oddur Sigurdsson
 - [ ] Date line on the title page.
-- [ ] Fonts: confirm *The Widening Edge* used Source Serif 4 + Source Sans 3
-      (currently pinned). If it used EB Garamond, switch in `paper/preamble/style.tex`.
+- [x] Fonts: Latin Modern (classic LaTeX / memoir look), as in *The Widening Edge*.
 - [ ] Palette: confirm the sister palette against *The Widening Edge*.
 
 ## Sources to verify (details in `data/SOURCES.md`)
@@ -19,7 +18,8 @@ still open. `make final` fails while any `\placeholder{}` or `\todo{}` remains.
 - [ ] `comin2004` volume/pages (NBER's requested citation for CHAT)
 - [ ] `immelt2009` page range
 - [ ] ACS rubber landmark wording (seen only via search extracts)
-- [ ] Off-grid solar sales time series: GOGLA reports year by year, with pages
+- [x] Off-grid solar series: IRENA 2025 edition chosen and entered (see SOURCES.md)
+- [ ] GSMA SSA figures (1.2bn registered, 341m active, $1.4tn): locate the page (likely in a chart)
 - [ ] Pay-as-you-go solar evidence (e.g. RCTs of solar lanterns) for §3.1
 - [ ] Hidden-abundance supply chain sources (IEA Solar PV Global Supply Chains; USGS) for §4
 

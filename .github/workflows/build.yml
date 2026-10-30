@@ -32,12 +32,11 @@ jobs:
             texlive-bibtex-extra texlive-fonts-extra texlive-science \
             biber latexmk lmodern
 
-      - name: Cache downloads and fonts
+      - name: Cache downloads
         uses: actions/cache@v4
         with:
           path: |
             data/raw
-            fonts
             ~/.cache/texmf-var
           key: raw-${{ hashFiles('scripts/fetch_*.py') }}
           restore-keys: raw-
