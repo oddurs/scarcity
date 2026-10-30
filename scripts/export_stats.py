@@ -162,6 +162,8 @@ STATS: list[Stat] = [
     Stat("goglaKitsSold", HEAD, headline("solar_energy_kits_sold", "World", 2025), m_one, "GOGLA: solar kits sold by affiliates, 2025"),
     Stat("goglaPeopleServed", HEAD, headline("people_served_gogla_affiliates", "World", 2025), m_whole, "GOGLA: people served by affiliates, 2025"),
     Stat("gsmaRegisteredAccounts", HEAD, headline("mobile_money_registered_accounts", "World", 2025), lambda v: f"{v:.1f}~billion", "GSMA: registered mobile money accounts, 2025"),
+    Stat("gsmaRegisteredSSA", HEAD, headline("mobile_money_registered_accounts", "Sub-Saharan Africa", 2025), lambda v: f"{v:.1f}~billion", "GSMA: registered accounts, SSA, 2025"),
+    Stat("gsmaValueSSA", HEAD, headline("mobile_money_transaction_value", "Sub-Saharan Africa", 2025), lambda v: f"\\${v:.1f}~trillion", "GSMA: transaction value, SSA, 2025"),
     Stat("gsmaActiveAccounts", HEAD, headline("mobile_money_active_30day_accounts", "World", 2025), m_whole, "GSMA: 30-day active accounts, 2025"),
     Stat("gsmaTransactionValue", HEAD, headline("mobile_money_transaction_value", "World", 2025), lambda v: f"\\${v:.1f}~trillion", "GSMA: transaction value, 2025"),
 ]

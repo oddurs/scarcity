@@ -25,3 +25,11 @@ adoptionLagYears,45,years,int,2010,comin2010,2031,Average adoption lag after inv
 adoptionIncomeShare,25,% of income differences,pct,2010,comin2010,2031,'at least 25%' of per-capita income differences
 geEcgPrice,1000,USD,usd,2009,immelt2009,web,Handheld ECG developed for rural India
 geUltrasoundPrice,15000,USD,usd,2009,immelt2009,web,"PC-based portable ultrasound 'for as little as $15,000'"
+pvPolysiliconShare,79,% of global polysilicon capacity in China,pct,2021,iea2022pv,58,
+pvWaferShare,97,% of global wafer capacity in China,pct,2021,iea2022pv,58,
+pvCellShare,85,% of global cell capacity in China,pct,2021,iea2022pv,58,Capacity; share of production 'almost 80%' (p. 26)
+pvModuleShare,75,% of global module capacity in China,pct,2021,iea2022pv,59,
+batteryCapacityShare,76,% of global EV battery production capacity in China,pct,2021,iea2022evbatt,36,China box; printed p. 34. Text p. 31: 'Three-quarters of battery cell production capacity is in China'
+moduleCostFall,93,% fall in weighted-average module cost Dec 2009 to Dec 2023,pct,2023,irena2024costs,82,
+paygDisabledShare,10,% of PAYG customers disabled for missed payment,pct,2020,barry2020,ms,"Author manuscript (HAL): 'only 10% of consumers are disabled due to a discontinued payment'"
+kenyaPhoneOwners,27,% of Kenyans owning a mobile phone,pct,2006,afi2010,11,"FinAccess 2006, printed p. 09; a further 27% had access to someone else's phone"

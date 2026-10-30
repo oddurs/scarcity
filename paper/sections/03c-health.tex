@@ -1,2 +1,79 @@
-\subsection{03c-health}
-\todo{draft}
+% 3.3 Health
+\subsection{Health}
+\label{sec:health}
+
+Health care is where the gap between the standard solution and what people can
+afford is widest, and where the stakes of getting a cheaper version wrong are
+highest. Three cases from India and elsewhere show the mechanism at work, and
+one shows its limits.
+
+\paragraph{The Jaipur Foot.} In the late 1960s in Jaipur, the orthopaedic
+surgeon P.\,K.\ Sethi set out, with local craftsmen, to make an artificial
+foot for people whose lives the imported designs did not fit. Western
+prosthetic feet assumed shoes, chairs and pavements. Many of Sethi's patients
+went barefoot and worked in fields. The reframing was to ask what a foot had to
+\emph{do} in rural Rajasthan rather than how to copy one designed for
+somewhere else. The result was built for barefoot amputees from readily
+available materials, mainly vulcanised rubber; it could be made in about an
+hour, and it let people work in muddy, wet fields and even climb trees
+\parencite{arya2008,sethi1978}. In 1978 Sethi
+and colleagues reported that it had been fitted to more than
+\jaipurAmputees{} amputees, and that each foot cost only about
+\jaipurCostOrig{} to make \parencite{sethi1978}. The foot is now distributed by
+the charity Bhagwan Mahaveer Viklang Sahayata Samiti, free of charge to
+patients. \todo{BMVSS limbs fitted count}
+
+\paragraph{Aravind Eye Care.} Aravind began in 1976 as an
+\aravindStartBeds{}-bed eye clinic based in Madurai, in southern India. It
+treated cataract surgery less like a craft and more like a production process,
+with standardised protocols, checklists and quality assurance, and with many
+tasks shifted from surgeons to a new cadre of mid-level ophthalmic personnel,
+so that surgeons' time goes mostly to operating. Fees are transparent, with
+waivers for those who cannot pay \parencite{ravilla2014}. A detailed costing found that a cataract operation at Aravind cost
+about \aravindCostPerOp{} in total, or \aravindCostPerQaly{} per
+quality-adjusted life-year gained, and attributed the low cost to domestic
+manufacturing of supplies, a specialised workforce, standardised protocols and
+few regulatory hurdles \parencite{le2016aravind}. The hospital has carried out
+more than \aravindSurgeries{} surgeries and laser procedures
+\parencite{ravilla2014}. \todo{Aravind vs rich-country cost and quality comparison}
+
+\paragraph{The Embrace warmer.} Premature babies need to be kept warm, and the
+standard answer is an incubator: a powered, climate-controlled box that needs a
+reliable electricity supply, maintenance and trained staff. In 2007 a group of
+Stanford students asked what a premature baby in a rural clinic actually
+needed, and the answer was warmth for a few hours at a time. They designed a
+small sleeping bag with a pouch of wax that holds a steady temperature after
+being heated. In 2011 it was reported to cost \embraceCostLow{} to
+\embraceCostHigh{}, against up to \incubatorCost{} for a conventional
+incubator \parencite{routson2011embrace}.
+
+\begin{table}[htbp]
+\centering
+\caption{\takeaway{Frugal designs cost a small fraction of the standard
+solution, but the comparisons are rough.} Costs are from different years,
+countries and accounting methods, and the products do not do the same things.
+They indicate orders of magnitude only.}
+\label{tab:health-costs}
+\small
+\begin{tabularx}{\linewidth}{@{}l X X@{}}
+\toprule
+Need & Frugal design & Standard solution \\
+\midrule
+Lower-limb prosthesis & Jaipur Foot: about \jaipurCostOrig{} a foot (1978) \parencite{sethi1978} & \todo{rich-country prosthesis cost} \\
+Cataract surgery & Aravind: about \aravindCostPerOp{} an operation, all costs (2016) \parencite{le2016aravind} & \todo{rich-country cataract cost} \\
+Warmth for premature babies & Embrace warmer: \embraceCostLow{}--\embraceCostHigh{} (2011) \parencite{routson2011embrace} & Incubator: up to \incubatorCost{} (2011) \parencite{routson2011embrace} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{counterpoint}
+Cost comparisons like those in \cref{tab:health-costs} flatter frugal designs
+in two ways. First, much of the difference reflects wages and prices rather
+than design: an operation in India costs less than one in Britain partly
+because everything in India costs less. Second, the cheaper product often does
+less. A rubber foot is not a carbon-fibre foot, and a wax-filled warmer cannot
+do what an incubator does for a very sick baby. The evidence on outcomes is
+also uneven. Aravind's results are well documented, but a survey of
+paediatricians in 2014 noted that there were no published trials of the
+Embrace warmer \parencite{nimbalkar2014}. \todo{NeoNurture or later Embrace evidence}
+\end{counterpoint}

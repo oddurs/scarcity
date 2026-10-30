@@ -5,6 +5,7 @@ aravindCostPerOp,120,USD,usd,2016,le2016aravind,1783,Abstract: 'Total costs per 
 aravindCostPerQaly,195,USD,usd,2016,le2016aravind,1783,'or $195 per quality-adjusted life-year gained'
 aravindStartBeds,11,beds,int,1976,ravilla2014,7,Began as an 11-bed hospital
 aravindSurgeries,5,million surgeries and laser procedures,millions,2014,ravilla2014,7,More than 5 million since 1976
+batteryCapacityShare,76,% of global EV battery production capacity in China,pct,2021,iea2022evbatt,36,China box; printed p. 34. Text p. 31: 'Three-quarters of battery cell production capacity is in China'
 dfidGrant,910000,GBP,gbp,2005,phillips2013dfid,web,"'a contribution of £910,000 from DFID'"
 embraceCostHigh,100,USD,usd,2011,routson2011embrace,web,Same range
 embraceCostLow,25,USD,usd,2011,routson2011embrace,web,'$25 to $100'
@@ -15,13 +16,20 @@ icelandGeoHeating,90,% of domestic heating energy,pct,2020,orkustofnun_heating,w
 incubatorCost,20000,USD,usd,2011,routson2011embrace,web,"Conventional incubators 'cost up to $20,000'"
 jaipurAmputees,1000,amputees,int,1978,sethi1978,125,Tested in 'more than a thousand amputees'
 jaipurCostOrig,2,GBP,gbp,1978,sethi1978,125,'these feet cost only about [£]2.00 (sterling)'; currency sign garbled in online text
+kenyaPhoneOwners,27,% of Kenyans owning a mobile phone,pct,2006,afi2010,11,"FinAccess 2006, printed p. 09; a further 27% had access to someone else's phone"
 literCountries,15,countries,int,2013,zobel2013bbc,web,'about 15 other countries'
 literHomesPhilippines,140000,homes,int,2013,zobel2013bbc,web,"'Moser lamps now fitted in 140,000 homes' (Philippines, as reported Aug 2013)"
+moduleCostFall,93,% fall in weighted-average module cost Dec 2009 to Dec 2023,pct,2023,irena2024costs,82,nan
 mooserWattsHigh,60,W,int,2013,zobel2013bbc,web,Same quote
 mooserWattsLow,40,W,int,2013,zobel2013bbc,web,Moser quoted: 'more or less 40 to 60 watts'
 mpesaHouseholdsLifted,194000,households,int,2014,suri2016,1288,"Abstract: 'lifted 194,000 households, or 2% of Kenyan households, out of poverty'"
 mpesaHouseholdsShare,2,% of Kenyan households,pct,2014,suri2016,1288,Same sentence
 mpesaWomenMoved,185000,women,int,2014,suri2016,1288,Women moving from farming into business occupations (extrapolated estimate)
+paygDisabledShare,10,% of PAYG customers disabled for missed payment,pct,2020,barry2020,ms,Author manuscript (HAL): 'only 10% of consumers are disabled due to a discontinued payment'
+pvCellShare,85,% of global cell capacity in China,pct,2021,iea2022pv,58,Capacity; share of production 'almost 80%' (p. 26)
+pvModuleShare,75,% of global module capacity in China,pct,2021,iea2022pv,59,nan
+pvPolysiliconShare,79,% of global polysilicon capacity in China,pct,2021,iea2022pv,58,nan
+pvWaferShare,97,% of global wafer capacity in China,pct,2021,iea2022pv,58,nan
 rubberTonsMonthEnd,70000,tons a month,int,1945,acs1998rubber,web,"'to an output of 70,000 tons a month in 1945'"
 rubberTonsStart,231,tons a year,int,1941,acs1998rubber,web,'an annual output of 231 tons of general purpose rubber in 1941'
 vodafoneMatch,990000,GBP,gbp,2005,phillips2013dfid,web,"'and £990,000 from Vodafone'"
