@@ -17,8 +17,6 @@ jaipurAmputees,1000,amputees,int,1978,sethi1978,125,Tested in 'more than a thous
 embraceCostLow,25,USD,usd,2011,routson2011embrace,web,"'$25 to $100'"
 embraceCostHigh,100,USD,usd,2011,routson2011embrace,web,Same range
 incubatorCost,20000,USD,usd,2011,routson2011embrace,web,"Conventional incubators 'cost up to $20,000'"
-rubberTonsStart,231,tons a year,int,1941,acs1998rubber,web,"'an annual output of 231 tons of general purpose rubber in 1941'"
-rubberTonsMonthEnd,70000,tons a month,int,1945,acs1998rubber,web,"'to an output of 70,000 tons a month in 1945'"
 icelandGeoHeating,90,% of domestic heating energy,pct,2020,orkustofnun_heating,web,"'About 90% of the energy used for domestic heating'"
 icelandDistrictHeating,95,% of population,pct,2020,orkustofnun_heating,web,District heating utilities supply 95% of the population
 adoptionLagYears,45,years,int,2010,comin2010,2031,Average adoption lag after invention (abstract)
@@ -33,3 +31,18 @@ batteryCapacityShare,76,% of global EV battery production capacity in China,pct,
 moduleCostFall,93,% fall in weighted-average module cost Dec 2009 to Dec 2023,pct,2023,irena2024costs,82,
 paygDisabledShare,10,% of PAYG customers disabled for missed payment,pct,2020,barry2020,ms,"Author manuscript (HAL): 'only 10% of consumers are disabled due to a discontinued payment'"
 kenyaPhoneOwners,27,% of Kenyans owning a mobile phone,pct,2006,afi2010,11,"FinAccess 2006, printed p. 09; a further 27% had access to someone else's phone"
+nhsCataractTariff,699,GBP,gbp,2014,monitor2014tariff,Annex 5A row 80,"HRG BZ02Z phacoemulsification with lens implant, day case/elective, 2014/15"
+aravindPcrRate,1.37,% of eyes with posterior capsule rupture,pct2,2018,haripriya2019,abstract,"2,062,643 eyes, 2011-2018"
+usProsthesisLow,2845,USD,usd,2026,cms2026dmepos,L5100,Medicare allowance for basic below-knee prosthesis; lowest state
+usProsthesisHigh,3794,USD,usd,2026,cms2026dmepos,L5100,Highest state
+swedenProsthesisCost,898,USD,usd,1997,hermodsson1998,605,Median cost per transtibial prosthesis (1997 prices)
+bmvssLimbs,724503,limbs,int,2026,bmvss2026,web,"'724503+ Limbs' provided up to now; counter undated"
+embraceTrialSize,120,newborns,int,2021,morgaonkar2021,abstract,Randomised trial during transport
+rubberLostShare,90,% of pre-war US natural rubber supply lost to Japan,pct,1942,baruch1942rubber,26,"Printed p. 24: 'Having lost to Japan 90 percent of our pre-war source of natural rubber'"
+icelandGeoStart,49.6,% of heated building volume geothermal,pct1,1970,orkustofnun2020heating,1,Table OS-2020-T008-01
+icelandGeoMid,74.2,% of heated building volume geothermal,pct1,1980,orkustofnun2020heating,1,
+icelandGeoEnd,79.9,% of heated building volume geothermal,pct1,1985,orkustofnun2020heating,1,
+icelandOilStart,46.0,% of heated building volume oil,pct1,1970,orkustofnun2020heating,1,'Other' column is oil per table note
+icelandOilMid,14.2,% of heated building volume oil,pct1,1980,orkustofnun2020heating,1,
+icelandOilEnd,6.2,% of heated building volume oil,pct1,1985,orkustofnun2020heating,1,
+ukPcrBenchmark,1.1,% consultant posterior capsule rupture benchmark,pct1,2020,buchan2020nod,Results,"'the overall consultant rate of 1.1% used in The National Cataract Audit'"

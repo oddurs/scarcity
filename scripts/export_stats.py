@@ -172,6 +172,8 @@ STATS: list[Stat] = [
 LITERATURE_FORMATS: dict[str, Callable[[float], str]] = {
     "int": number,
     "pct": pct,
+    "pct1": lambda v: pct(v, 1),
+    "pct2": lambda v: pct(v, 2),
     "usd": lambda v: f"\\$\\num{{{v:.0f}}}",
     "gbp": lambda v: f"£\\num{{{v:.0f}}}",
     "millions": lambda v: f"{v:.0f}~million",

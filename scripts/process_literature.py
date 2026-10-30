@@ -13,7 +13,7 @@ import pandas as pd
 from _common import MANUAL, write_csv
 
 REQUIRED = ["macro", "value", "unit", "fmt", "year", "source_key", "page"]
-FORMATS = {"int", "pct", "usd", "gbp", "millions"}
+FORMATS = {"int", "pct", "pct1", "pct2", "usd", "gbp", "millions"}
 
 
 def main() -> None:
