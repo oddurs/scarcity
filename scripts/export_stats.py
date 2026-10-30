@@ -33,6 +33,14 @@ def millions(value: float, digits: int = 0) -> str:
     return f"{value / 1e6:.{digits}f}~million"
 
 
+def m_whole(value: float) -> str:
+    return f"{value:.0f}~million"
+
+
+def m_one(value: float) -> str:
+    return f"{value:.1f}~million"
+
+
 def millions_from_m(value: float) -> str:
     """Value already in millions; rounded to the nearest 5 million, since the
     headcount is a product of two estimates and false precision would mislead."""
@@ -69,6 +77,12 @@ def peak_year(column: str) -> Callable[[pd.DataFrame], float]:
     return lambda d: d.loc[d[column].idxmax(), "year"]
 
 
+def headline(series: str, entity: str, year_: int) -> Callable[[pd.DataFrame], float]:
+    """One hand-entered report figure (data/manual/report_headlines.csv)."""
+    return lambda d: d.loc[(d["series"] == series) & (d["entity"] == entity)
+                           & (d["year"] == year_), "value"].item()
+
+
 def cell(economy: str, column: str) -> Callable[[pd.DataFrame], float]:
     """One value from a per-economy summary table."""
     return lambda d: d.set_index("economy").loc[economy, column]
@@ -88,6 +102,8 @@ class Stat:
 ELEC = "electricity_access.csv"
 FINDEX = "findex_accounts.csv"
 LEAP = "leapfrog_summary.csv"
+OFFGRID = "offgrid_solar.csv"
+HEAD = "report_headlines.csv"
 
 STATS: list[Stat] = [
     # Electricity access (World Bank WDI, EG.ELC.ACCS.ZS; SSF = sub-Saharan Africa)
@@ -126,6 +142,25 @@ STATS: list[Stat] = [
     Stat("kenFixedPeak", LEAP, cell("KEN", "fixed_peak"), lambda v: number(v, 1), "Kenya fixed lines per 100, peak"),
     Stat("kenMobileSubs", LEAP, cell("KEN", "mobile_latest"), number, "Kenya mobile subscriptions per 100, latest"),
     Stat("usaFixedPeak", LEAP, cell("USA", "fixed_peak"), number, "US fixed lines per 100, peak"),
+
+    # Off-grid solar users in SSA (IRENA 2025 edition; Africa minus North Africa)
+    Stat("sspSolarUsers", OFFGRID, latest("total"), m_whole, "SSA people using off-grid solar, latest"),
+    Stat("sspSolarUsersStart", OFFGRID, first("total"), m_whole, "SSA people using off-grid solar, first year"),
+    Stat("sspSolarYear", OFFGRID, latest_year("total"), year, "Latest IRENA year"),
+    Stat("sspSolarStartYear", OFFGRID, first_year("total"), year, "First IRENA year"),
+    Stat("sspShsUsers", OFFGRID, latest("shs"), m_whole, "SSA solar home system users (11 W+), latest"),
+    Stat("sspShsUsersStart", OFFGRID, first("shs"), m_one, "SSA solar home system users (11 W+), first year"),
+    Stat("sspLightUsers", OFFGRID, latest("lights"), m_whole, "SSA solar light users (<11 W), latest"),
+
+    # Report headlines (hand-entered with page numbers)
+    Stat("sdgWithoutElecWorld", HEAD, headline("people_without_electricity", "World", 2024), m_whole, "Tracking SDG7 2026: people without electricity, world, 2024"),
+    Stat("sdgWithoutElecSSA", HEAD, headline("people_without_electricity", "Sub-Saharan Africa", 2024), m_whole, "Tracking SDG7 2026: people without electricity, SSA, 2024"),
+    Stat("sdgOffgridServed", HEAD, headline("people_served_offgrid_solar_tier1_2", "World", 2024), m_whole, "Tracking SDG7 2026: Tier 1-2 off-grid solar, world, 2024"),
+    Stat("goglaKitsSold", HEAD, headline("solar_energy_kits_sold", "World", 2025), m_one, "GOGLA: solar kits sold by affiliates, 2025"),
+    Stat("goglaPeopleServed", HEAD, headline("people_served_gogla_affiliates", "World", 2025), m_whole, "GOGLA: people served by affiliates, 2025"),
+    Stat("gsmaRegisteredAccounts", HEAD, headline("mobile_money_registered_accounts", "World", 2025), lambda v: f"{v:.1f}~billion", "GSMA: registered mobile money accounts, 2025"),
+    Stat("gsmaActiveAccounts", HEAD, headline("mobile_money_active_30day_accounts", "World", 2025), m_whole, "GSMA: 30-day active accounts, 2025"),
+    Stat("gsmaTransactionValue", HEAD, headline("mobile_money_transaction_value", "World", 2025), lambda v: f"\\${v:.1f}~trillion", "GSMA: transaction value, 2025"),
 ]
 
 

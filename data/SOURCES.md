@@ -47,6 +47,25 @@ from and how far it has been checked. Bibliography keys match
 - Subscriptions are not people: many adults hold several SIMs, so mobile
   subscriptions per 100 overstate how many people have a phone.
 
+**Off-grid solar series: why IRENA, and the caveats**
+
+- Only IRENA 2025 gives an annual, single-method, regional series. Tracking
+  SDG7 changed its headline off-grid metric in almost every edition from 2018
+  to 2026 and mislabels years across editions; GOGLA changed units ("products"
+  to "kits", 2022), cadence (half-yearly to annual, 2025) and has documented
+  breaks in "people served".
+- **Never mix IRENA editions.** The 2024 highlights put solar-light users in
+  2023 at ~100m worldwide; the 2025 edition says 40.3m.
+- IRENA rests mostly on GOGLA-affiliate sales (~29% of the market), so it
+  undercounts. The whole-market estimate in Tracking SDG7 2026 is 449m people
+  worldwide on Tier 1–2 off-grid solar in 2024, against IRENA's ~84m.
+- Lights under 11 W generally fall short of Tier 1 access; the figure shows
+  them separately from solar home systems.
+- ~35% of off-grid solar users are grid-connected and use it as backup
+  (60 Decibels 2025, cited in Tracking SDG7 2026), so uptake ≠ first access.
+- Research notes with ~150 candidate data points, including the rejected
+  series, are kept outside the repo; only the chosen series is entered.
+
 ## 1b. Processed outputs
 
 | File | Built by | Feeds |
@@ -54,6 +73,8 @@ from and how far it has been checked. Bibliography keys match
 | `electricity_access.csv` | `process_electricity.py` | Figure 2 (§3.1); `\ssp*Elec*`, `\wldElecAccess`, `\kenElecAccess` |
 | `findex_accounts.csv` | `process_findex.py` | Figure 3 (§3.2); `\ken*Account*`, `\ssa*`, `\wldMobileMoney` |
 | `leapfrog_summary.csv`, `leapfrog_series.csv` | `process_leapfrog.py` | Leapfrogging (§2, §4 causation); `\*FixedPeak`, `\*MobileSubs` |
+| `offgrid_solar.csv` | `process_offgrid.py` (from `data/manual/irena_offgrid_people.csv`) | Figure 2 bands; `\ssp*Solar*`, `\sspShs*`, `\sspLightUsers` |
+| `report_headlines.csv` | `process_headlines.py` (from `data/manual/report_headlines.csv`) | `\sdg*`, `\gogla*`, `\gsma*` |
 
 ## 2. Reports (figures entered by hand into `data/manual/`)
 
@@ -63,9 +84,9 @@ Each value goes in `data/manual/*.csv` with `value, unit, year, source_key, page
 |---|---|---|---|---|
 | **Tracking SDG7 2026** (data year 2024), via UNSD SDG Extended Report 2026, Goal 7 (`unsd2026sdg7`) | 92% global access; 655m without electricity; 563m (86%) in SSA; ~449m served by tier 1–2 off-grid solar; ~48m by mini-grids | unstats.un.org/sdgs/report/2026/extended-report/Extended-Report-2026_Goal-7.pdf | UN terms; quote with citation | VERIFIED. The ESMAP portal blocks automated fetch, so the UNSD copy is used |
 | **GOGLA** Global Off-Grid Solar Market Report, June 2026, covering 2025 (`gogla2026`) | 10.2m kits sold in 2025 (+10%); affiliates serve "over 148 million people", 11m added in 2025 | gogla.org/wp-content/uploads/2026/06/GOGLA_Global-Off-Grid-Solar-Market-Report_2026_DEF3.pdf | "Public Report"; **no open licence found**. Quote aggregates, don't redistribute | VERIFIED. Covers affiliates only, so it **undercounts** the market |
-| **GSMA** State of the Industry Report on Mobile Money 2026, data year 2025 (`gsma2026sotir`) | Global: 2.3bn registered, 593m 30-day active, $2.1tn value. SSA: 1.2bn registered (~52%), 341m active, $1.4tn (~67% of value) | gsma.com/sotir/…/The-State-of-the-Industry-Report-2026_English.pdf | GSMA terms; quote with citation | VERIFIED |
+| **GSMA** State of the Industry Report on Mobile Money 2026, data year 2025 (`gsma2026sotir`) | Global: 2.3bn registered, 593m 30-day active, $2.1tn value (PDF pp. 3, 6). SSA: 1.2bn registered (~52%), 341m active, $1.4tn (~67% of value): **SSA figures not found in the text layer; page still TODO** | gsma.com/sotir/…/The-State-of-the-Industry-Report-2026_English.pdf | GSMA terms; quote with citation | VERIFIED |
 | **Orkustofnun**, District heating (`orkustofnun_heating`) | ~90% of domestic heating energy geothermal (2020); district heating reaches 95% of the population; oil crises of 1973 and 1979 changed energy policy | orkustofnun.is/en/natural_resources/district_heating | Government web page | VERIFIED |
-| Historical time series for SSA off-grid solar sales (for Fig. 3.1) | Annual kits sold, by year | GOGLA semi-annual reports, one per year | as above | **TODO**: collect year by year with page numbers |
+| **IRENA** Off-grid Renewable Energy Statistics 2025 (`irena2025offgrid`) | People using solar lights (<11 W), SHS 11–50 W and SHS >50 W, by country and region, 2015–2024 (PDF pp. 57, 59, 61) | irena.org/-/media/Files/IRENA/Agency/Publication/2025/Dec/IRENA_DAT_Off-grid_Renewable_Energy_Statistics_2025.pdf | Free reuse with acknowledgement of IRENA | VERIFIED: every value re-read from the PDF. **Chosen series for Fig. 2** (one edition, one method, regional). SSA = Africa row minus Egypt, Morocco, Tunisia (≤0.45m, >50 W table only) |
 
 ## 3. Claims in the outline, checked
 

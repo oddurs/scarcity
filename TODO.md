@@ -18,7 +18,8 @@ still open. `make final` fails while any `\placeholder{}` or `\todo{}` remains.
 - [ ] `comin2004` volume/pages (NBER's requested citation for CHAT)
 - [ ] `immelt2009` page range
 - [ ] ACS rubber landmark wording (seen only via search extracts)
-- [ ] Off-grid solar sales time series: GOGLA reports year by year, with pages
+- [x] Off-grid solar series: IRENA 2025 edition chosen and entered (see SOURCES.md)
+- [ ] GSMA SSA figures (1.2bn registered, 341m active, $1.4tn): locate the page (likely in a chart)
 - [ ] Pay-as-you-go solar evidence (e.g. RCTs of solar lanterns) for §3.1
 - [ ] Hidden-abundance supply chain sources (IEA Solar PV Global Supply Chains; USGS) for §4
 

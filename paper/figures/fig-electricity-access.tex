@@ -1,5 +1,7 @@
-% Figure: electricity access in sub-Saharan Africa, as a share and as a headcount.
-% Data: data/processed/electricity_access.csv (scripts/process_electricity.py).
+% Figure: electricity access in sub-Saharan Africa, as a share and as a headcount,
+% with people using off-grid solar on the same scale.
+% Data: data/processed/electricity_access.csv (scripts/process_electricity.py),
+%       data/processed/offgrid_solar.csv (scripts/process_offgrid.py).
 \begin{tikzpicture}
 \begin{groupplot}[
   group style={group size=2 by 1, horizontal sep=0.15\linewidth},
@@ -21,13 +23,20 @@
   \addplot[series accent] table[x=year, y=ssf_rural, col sep=comma] {../data/processed/electricity_access.csv}
     node[end label, pos=1, text=amber!70!ink, align=left] {SSA\\rural};
 
-  % Right: number of people without access
+  % Right: people without access, and people using off-grid solar (stacked)
   \nextgroupplot[
     ymin=0, ymax=700, ytick={0,200,400,600},
-    title={People without electricity, SSA (millions)},
+    title={People in SSA (millions)},
     title style={font=\sffamily\footnotesize, anchor=south west, at={(0,1.02)}, align=left},
   ]
-  \addplot[series primary, fill=indigo!12, draw=indigo] table[x=year, y=ssf_without_m, col sep=comma]
-    {../data/processed/electricity_access.csv} \closedcycle;
+  \addplot[series primary] table[x=year, y=ssf_without_m, col sep=comma]
+    {../data/processed/electricity_access.csv}
+    node[end label, pos=1, anchor=south west, text=indigo] {Without\\electricity};
+  \addplot[draw=none, fill=amber!45] table[x=year, y=total, col sep=comma]
+    {../data/processed/offgrid_solar.csv} \closedcycle;
+  \addplot[draw=none, fill=amber!85!ink] table[x=year, y=shs, col sep=comma]
+    {../data/processed/offgrid_solar.csv} \closedcycle;
+  \node[end label, text=amber!70!ink, anchor=south west] at (axis cs:2024,82) {Solar\\lights};
+  \node[end label, text=amber!70!ink, anchor=south west] at (axis cs:2024,0) {Solar home\\systems};
 \end{groupplot}
 \end{tikzpicture}
