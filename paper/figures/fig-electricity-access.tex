@@ -1,0 +1,33 @@
+% Figure: electricity access in sub-Saharan Africa, as a share and as a headcount.
+% Data: data/processed/electricity_access.csv (scripts/process_electricity.py).
+\begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=2 by 1, horizontal sep=0.15\linewidth},
+  scarcity axis, year axis,
+  width=0.47\linewidth, height=0.42\linewidth,
+  xmin=2000, xmax=2024, xtick={2000,2008,2016,2024},
+  unbounded coords=jump,
+]
+  % Left: share of people with access
+  \nextgroupplot[
+    ymin=0, ymax=100, ytick={0,25,50,75,100},
+    title={Share with electricity (\%)},
+    title style={font=\sffamily\footnotesize, anchor=south west, at={(0,1.02)}, align=left},
+  ]
+  \addplot[series context] table[x=year, y=wld, col sep=comma] {../data/processed/electricity_access.csv}
+    node[end label, pos=1, text=stone] {World};
+  \addplot[series primary] table[x=year, y=ssf, col sep=comma] {../data/processed/electricity_access.csv}
+    node[end label, pos=1, text=indigo] {SSA};
+  \addplot[series accent] table[x=year, y=ssf_rural, col sep=comma] {../data/processed/electricity_access.csv}
+    node[end label, pos=1, text=amber!70!ink, align=left] {SSA\\rural};
+
+  % Right: number of people without access
+  \nextgroupplot[
+    ymin=0, ymax=700, ytick={0,200,400,600},
+    title={People without electricity, SSA (millions)},
+    title style={font=\sffamily\footnotesize, anchor=south west, at={(0,1.02)}, align=left},
+  ]
+  \addplot[series primary, fill=indigo!12, draw=indigo] table[x=year, y=ssf_without_m, col sep=comma]
+    {../data/processed/electricity_access.csv} \closedcycle;
+\end{groupplot}
+\end{tikzpicture}
