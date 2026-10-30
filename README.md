@@ -26,11 +26,10 @@ make final     # clean build that fails on any placeholder, TODO or bad citation
 ```
 
 Other targets: `make data`, `make figures`, `make pdf`, `make clean`,
-`make distclean` (also drops cached downloads and fonts).
+`make distclean` (also drops cached downloads).
 
-The typefaces (Source Serif 4, Source Sans 3; SIL Open Font License) are
-fetched from pinned Adobe releases and checked against SHA-256 hashes by
-`scripts/fetch_fonts.py`, so local and CI builds set the same type.
+Type is Latin Modern (the OpenType Computer Modern), the classic LaTeX face
+used in *The Widening Edge*. It ships with TeX Live, so nothing is fetched.
 
 ## Layout
 

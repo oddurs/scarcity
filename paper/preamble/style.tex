@@ -11,38 +11,11 @@
 \usepackage{unicode-math}
 \defaultfontfeatures{Ligatures=TeX}
 
-% Body: Source Serif 4 (text optical size). Sans: Source Sans 3. Both are
-% pinned releases fetched into fonts/ by scripts/fetch_fonts.py, so every
-% build uses the same files. Semibold stands in for bold throughout.
-% Maths: STIX Two.
-\setmainfont{SourceSerif4}[
-  Path=../fonts/, Extension=.otf,
-  UprightFont=*-Regular, ItalicFont=*-It,
-  BoldFont=*-Semibold,   BoldItalicFont=*-SemiboldIt,
-  Numbers={OldStyle,Proportional}]
-% Optical sizes for display type: Subhead for section headings, Display for
-% the title page.
-\newfontfamily\subheadserif{SourceSerif4Subhead}[
-  Path=../fonts/, Extension=.otf,
-  UprightFont=*-Regular, ItalicFont=*-It,
-  BoldFont=*-Semibold,   BoldItalicFont=*-SemiboldIt,
-  Numbers={Lining,Proportional}]
-\newfontfamily\displayserif{SourceSerif4Display}[
-  Path=../fonts/, Extension=.otf,
-  UprightFont=*-Regular, ItalicFont=*-It,
-  BoldFont=*-Semibold,   BoldItalicFont=*-SemiboldIt,
-  Numbers={Lining,Proportional}]
-\newfontfamily\liningserif{SourceSerif4}[
-  Path=../fonts/, Extension=.otf,
-  UprightFont=*-Regular, ItalicFont=*-It,
-  BoldFont=*-Semibold,   BoldItalicFont=*-SemiboldIt,
-  Numbers={Lining,Proportional}]
-\setsansfont{SourceSans3}[
-  Path=../fonts/, Extension=.otf,
-  UprightFont=*-Regular, ItalicFont=*-It,
-  BoldFont=*-Semibold,   BoldItalicFont=*-SemiboldIt,
-  Scale=MatchLowercase]
-\setmathfont{STIX Two Math}[Scale=MatchLowercase]
+% The classic LaTeX look, as in The Widening Edge: Latin Modern, the
+% OpenType Computer Modern that memoir and the standard classes default to.
+% Ships with every TeX Live, so no fonts need fetching. LuaLaTeX already
+% selects Latin Modern Roman (with optical sizes and true small caps) and
+% Latin Modern Sans; unicode-math selects Latin Modern Math.
 
 \usepackage[protrusion=true, expansion=true, tracking=true]{microtype}
 \SetTracking{encoding=*, shape=sc}{50}
@@ -74,12 +47,12 @@
 % ---- Headings -------------------------------------------------------------
 \usepackage{titlesec}
 \titleformat{\section}
-  {\normalfont\subheadserif\Large\scshape\color{indigo}}
-  {\llap{\textls[0]{\upshape\liningserif\thesection}\hspace{0.9em}}}{0pt}
+  {\normalfont\Large\scshape\color{indigo}}
+  {\llap{\upshape\thesection\hspace{0.9em}}}{0pt}
   {\MakeLowercase}
 \titleformat{\subsection}
-  {\normalfont\subheadserif\large\scshape\color{indigo}}
-  {\llap{\upshape\liningserif\thesubsection\hspace{0.9em}}}{0pt}
+  {\normalfont\large\scshape\color{indigo}}
+  {\llap{\upshape\thesubsection\hspace{0.9em}}}{0pt}
   {\MakeLowercase}
 \titleformat{\subsubsection}
   {\normalfont\normalsize\itshape\color{indigo}}{}{0pt}{}
@@ -147,5 +120,3 @@
 \newcommand{\eg}{e.g.\@\xspace}
 \newcommand{\ie}{i.e.\@\xspace}
 \usepackage{xspace}
-% Lining figures inside running text where they sit next to sans numerals.
-\newcommand{\lnum}[1]{{\liningserif #1}}

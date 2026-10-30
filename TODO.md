@@ -4,10 +4,9 @@ Everything here is either unverified, a placeholder in the PDF, or a decision
 still open. `make final` fails while any `\placeholder{}` or `\todo{}` remains.
 
 ## Decisions for Oddur
-- [ ] Author line: surname and affiliation (title page shows `\placeholder{surname}`).
+- [x] Author: Oddur Sigurdsson
 - [ ] Date line on the title page.
-- [ ] Fonts: confirm *The Widening Edge* used Source Serif 4 + Source Sans 3
-      (currently pinned). If it used EB Garamond, switch in `paper/preamble/style.tex`.
+- [x] Fonts: Latin Modern (classic LaTeX / memoir look), as in *The Widening Edge*.
 - [ ] Palette: confirm the sister palette against *The Widening Edge*.
 
 ## Sources to verify (details in `data/SOURCES.md`)
