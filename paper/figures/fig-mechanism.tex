@@ -1,0 +1,31 @@
+% Figure: the mechanism in three moving parts, with the more common outcome
+% (going without) drawn in alongside it. Conceptual; no data.
+\begin{tikzpicture}[
+  node distance=8mm and 9mm,
+  stage/.style={concept, text width=0.24\linewidth, minimum height=24mm},
+  ex/.style={note, text width=0.24\linewidth, text=ink!70, font=\sffamily\scriptsize\hyphenpenalty=10000},
+]
+  \node[stage] (remove) {\textbf{1. Removal of the default}\\[3pt]
+    The inherited solution is not there: no grid, no bank branch, no hospital.};
+  \node[stage, right=of remove] (reframe) {\textbf{2. Reframing}\\[3pt]
+    ``How do we copy X?'' becomes ``What do we actually need?''};
+  \node[concept accent, text width=0.24\linewidth, minimum height=24mm, right=of reframe] (solution)
+    {\textbf{A different solution}\\[3pt] Often cheaper, simpler and narrower than the original.};
+
+  \draw[flow] (remove) -- (reframe);
+  \draw[flow] (reframe) -- (solution);
+
+  % 3. Reverse flow: back toward resource-rich places
+  \draw[flow back] (solution.north) -- ++(0,9mm) -| node[pos=0.25, above, note, text=amber!70!ink]
+    {\textbf{3. Reverse flow:} some solutions travel back to resource-rich places}
+    (remove.north);
+
+  % The common case
+  \node[concept counter, text width=0.24\linewidth, below=11mm of remove] (without)
+    {\textbf{Going without}\\[3pt] The usual outcome: darkness, cash, untreated illness.};
+  \draw[flow, draw=clay] (remove) -- node[right, note, text=clay, align=left] {more often} (without);
+
+  % Examples under each stage
+  \node[ex, below=3mm of reframe] {Daylight, not electricity; a phone, not a branch; a cataract, not an eye hospital.};
+  \node[ex, below=3mm of solution] {Bottle light, M-Pesa, Aravind's assembly-line surgery.};
+\end{tikzpicture}
