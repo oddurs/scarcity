@@ -1,0 +1,52 @@
+% plots.tex — shared pgfplots styles.
+% Every data figure uses `scarcity axis`; series use the named styles below
+% so colour, dash and marker always travel together.
+
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{dateplot,fillbetween}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+
+\pgfplotsset{
+  scarcity axis/.style={
+    width=\linewidth, height=0.56\linewidth,
+    font=\sffamily\footnotesize,
+    every axis label/.append style={font=\sffamily\footnotesize, color=ink},
+    tick label style={font=\sffamily\scriptsize, color=ink!80},
+    axis line style={draw=stone},
+    axis x line*=bottom, axis y line*=left,
+    major tick style={draw=stone},
+    tick align=outside, major tick length=2.5pt,
+    ymajorgrids, grid style={draw=rule, line width=0.4pt},
+    legend style={draw=none, fill=none, font=\sffamily\scriptsize,
+                  legend cell align=left},
+    legend pos=north west,
+    /pgf/number format/1000 sep={\,},
+    scaled ticks=false,
+    clip=false,
+  },
+  % Years on the x axis: no thousands separator.
+  year axis/.style={
+    xticklabel style={/pgf/number format/.cd, 1000 sep={}, fixed},
+  },
+  series primary/.style={indigo, line width=1.4pt, solid, mark=none},
+  series accent/.style={amber!85!ink, line width=1.4pt, dashed, mark=none},
+  series counter/.style={clay, line width=1.2pt, dash dot, mark=none},
+  series context/.style={stone, line width=0.8pt, densely dotted, mark=none},
+  % Direct labels at the end of a line beat legends.
+  end label/.style={anchor=west, font=\sffamily\scriptsize, inner sep=2pt},
+  % Bars
+  bar primary/.style={fill=indigo, draw=none},
+  bar accent/.style={fill=amber, draw=none},
+  bar counter/.style={fill=clay, draw=none, postaction={pattern=north east lines, pattern color=white}},
+}
+
+% TikZ styles for concept diagrams.
+\tikzset{
+  concept/.style={draw=indigo, line width=0.8pt, fill=paper, rounded corners=2pt,
+                  align=center, font=\sffamily\small, inner sep=6pt, text=ink},
+  concept accent/.style={concept, draw=amber, fill=amberwash},
+  concept counter/.style={concept, draw=clay, fill=claywash},
+  flow/.style={-{Stealth[length=5pt]}, line width=0.8pt, draw=indigo},
+  flow back/.style={flow, draw=amber!85!ink, dashed},
+  note/.style={font=\sffamily\scriptsize, text=stone, align=center},
+}

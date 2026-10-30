@@ -1,0 +1,38 @@
+% Less Is a Different Kind of More: Scarcity as a Mode of Innovation
+% Build with `make pdf` from the repository root (LuaLaTeX via latexmk).
+\documentclass[11pt]{article}
+
+\newcommand{\papertitle}{Less Is a Different Kind of More}
+\newcommand{\papersubtitle}{Scarcity as a Mode of Innovation}
+\newcommand{\shorttitle}{Less Is a Different Kind of More}
+\newcommand{\paperauthor}{Oddur \placeholder{surname}}
+\newcommand{\paperauthorplain}{Oddur}
+\newcommand{\paperseries}{A companion to \emph{The Widening Edge}}
+\newcommand{\paperdate}{\placeholder{month year}}
+
+\input{preamble/colours}
+\input{preamble/style}
+\input{preamble/boxes}
+\input{preamble/plots}
+
+% Numbers in prose come from the data pipeline, never from the keyboard.
+\input{../generated/stats}
+
+\begin{document}
+
+\input{sections/00-titlepage}
+\input{sections/00-glance}
+
+\input{sections/01-introduction}
+\input{sections/02-defining-terms}
+\input{sections/03-case-for}
+\input{sections/04-arguing-against-myself}
+\input{sections/05-synthesis}
+\input{sections/06-conclusion}
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\printbibliography[heading=bibintoc, title={References}]
+
+\end{document}

@@ -1,0 +1,64 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write   # to attach the PDF to tagged releases
+
+jobs:
+  pdf:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # SOURCE_DATE_EPOCH comes from the last commit
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends \
+            texlive-luatex texlive-latex-extra texlive-pictures \
+            texlive-bibtex-extra texlive-fonts-extra texlive-science \
+            biber latexmk lmodern
+
+      - name: Cache downloads and fonts
+        uses: actions/cache@v4
+        with:
+          path: |
+            data/raw
+            fonts
+            ~/.cache/texmf-var
+          key: raw-${{ hashFiles('scripts/fetch_*.py') }}
+          restore-keys: raw-
+
+      - name: Install Python dependencies
+        run: make setup
+
+      - name: Build
+        run: make all
+
+      - name: Release gate (tags only)
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: make final
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: scarcity-paper
+          path: scarcity-paper.pdf
+
+      - name: Attach PDF to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: scarcity-paper.pdf

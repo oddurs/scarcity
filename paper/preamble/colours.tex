@@ -1,0 +1,21 @@
+% colours.tex — the palette.
+% A sister palette to The Widening Edge. The three chart colours are chosen
+% to separate by lightness as well as hue, so figures survive greyscale
+% printing and the common forms of colour blindness:
+%   indigo  L* ~ 26   amber  L* ~ 72   clay  L* ~ 52
+% Every chart also varies line style or marker, never colour alone.
+
+\RequirePackage{xcolor}
+
+\definecolor{indigo}{HTML}{2B3A67}   % primary: headings, rules, main series
+\definecolor{amber}{HTML}{E8A33D}    % accent: Key Idea boxes, highlight series
+\definecolor{clay}{HTML}{C8553D}     % counterpoints, the case against
+\definecolor{paper}{HTML}{F7F3EA}    % box and panel backgrounds
+\definecolor{ink}{HTML}{22232A}      % body text: softer than pure black
+\definecolor{stone}{HTML}{8C877B}    % context series, gridlines, captions
+\definecolor{rule}{HTML}{D9D2C3}     % hairlines on paper backgrounds
+
+% Tints used by boxes
+\colorlet{amberwash}{amber!12!paper}
+\colorlet{claywash}{clay!9!paper}
+\colorlet{indigowash}{indigo!6!paper}

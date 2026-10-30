@@ -1,0 +1,27 @@
+# LaTeX build products
+paper/build/
+*.aux
+*.log
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Output (attached to CI runs and releases instead)
+/scarcity-paper.pdf
+
+# Raw downloads are recreated by scripts/fetch_*.py
+data/raw/*
+!data/raw/.gitkeep
+
+# Python
+__pycache__/
+.venv/
+*.egg-info/
+uv.lock
+fonts/

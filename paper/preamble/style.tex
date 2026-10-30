@@ -1,0 +1,151 @@
+% style.tex — page, type, headings, captions, links, bibliography.
+
+% ---- Page ---------------------------------------------------------------
+% US Letter, always. Side margins a touch over 1in keep the measure near
+% 75 characters at 11pt.
+\usepackage[letterpaper, top=1in, bottom=1in, left=1.2in, right=1.2in,
+            headheight=21pt, headsep=0.3in, footskip=0.45in]{geometry}
+
+% ---- Type ---------------------------------------------------------------
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{Ligatures=TeX}
+
+% Body: Source Serif 4 (text optical size). Sans: Source Sans 3. Both are
+% pinned releases fetched into fonts/ by scripts/fetch_fonts.py, so every
+% build uses the same files. Semibold stands in for bold throughout.
+% Maths: STIX Two.
+\setmainfont{SourceSerif4}[
+  Path=../fonts/, Extension=.otf,
+  UprightFont=*-Regular, ItalicFont=*-It,
+  BoldFont=*-Semibold,   BoldItalicFont=*-SemiboldIt,
+  Numbers={OldStyle,Proportional}]
+% Optical sizes for display type: Subhead for section headings, Display for
+% the title page.
+\newfontfamily\subheadserif{SourceSerif4Subhead}[
+  Path=../fonts/, Extension=.otf,
+  UprightFont=*-Regular, ItalicFont=*-It,
+  BoldFont=*-Semibold,   BoldItalicFont=*-SemiboldIt,
+  Numbers={Lining,Proportional}]
+\newfontfamily\displayserif{SourceSerif4Display}[
+  Path=../fonts/, Extension=.otf,
+  UprightFont=*-Regular, ItalicFont=*-It,
+  BoldFont=*-Semibold,   BoldItalicFont=*-SemiboldIt,
+  Numbers={Lining,Proportional}]
+\newfontfamily\liningserif{SourceSerif4}[
+  Path=../fonts/, Extension=.otf,
+  UprightFont=*-Regular, ItalicFont=*-It,
+  BoldFont=*-Semibold,   BoldItalicFont=*-SemiboldIt,
+  Numbers={Lining,Proportional}]
+\setsansfont{SourceSans3}[
+  Path=../fonts/, Extension=.otf,
+  UprightFont=*-Regular, ItalicFont=*-It,
+  BoldFont=*-Semibold,   BoldItalicFont=*-SemiboldIt,
+  Scale=MatchLowercase]
+\setmathfont{STIX Two Math}[Scale=MatchLowercase]
+
+\usepackage[protrusion=true, expansion=true, tracking=true]{microtype}
+\SetTracking{encoding=*, shape=sc}{50}
+\usepackage{setspace}
+\setstretch{1.18}
+\setlength{\parindent}{1.4em}
+\setlength{\parskip}{0pt}
+\widowpenalty=10000 \clubpenalty=10000
+\raggedbottom
+\color{ink}
+
+% ---- Tools ---------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{booktabs, tabularx, array, multirow}
+\usepackage{siunitx}
+\sisetup{group-separator={,}, group-minimum-digits=4,
+         detect-all, text-family-to-math=false}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\setlist{itemsep=2pt, topsep=4pt, leftmargin=1.6em}
+\setlist[itemize]{label=\textcolor{indigo}{\textbullet}}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage[most]{tcolorbox}
+\usepackage{etoolbox}
+\usepackage{xparse}
+
+% ---- Headings -------------------------------------------------------------
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\subheadserif\Large\scshape\color{indigo}}
+  {\llap{\textls[0]{\upshape\liningserif\thesection}\hspace{0.9em}}}{0pt}
+  {\MakeLowercase}
+\titleformat{\subsection}
+  {\normalfont\subheadserif\large\scshape\color{indigo}}
+  {\llap{\upshape\liningserif\thesubsection\hspace{0.9em}}}{0pt}
+  {\MakeLowercase}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\itshape\color{indigo}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{2.4\baselineskip}{1.0\baselineskip}
+\titlespacing*{\subsection}{0pt}{1.6\baselineskip}{0.6\baselineskip}
+\titlespacing*{\subsubsection}{0pt}{1.0\baselineskip}{0.3\baselineskip}
+
+% ---- Running header -------------------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\scriptsize\color{stone}\textls[60]{\MakeUppercase{\shorttitle}}}
+\fancyhead[R]{\sffamily\scriptsize\color{stone}\textls[60]{\MakeUppercase{Working Paper}}}
+\fancyfoot[C]{\sffamily\footnotesize\color{stone}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{rule}\leaders\hrule height \headrulewidth\hfill}}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\sffamily\footnotesize\color{stone}\thepage}}
+
+% ---- Captions -------------------------------------------------------------
+% Captions lead with the takeaway (bold), then the detail; the source goes
+% last on its own line via \figsource{...}.
+\usepackage[font={small,sf}, labelfont={bf,color=indigo}, labelsep=period,
+            justification=raggedright, singlelinecheck=false,
+            skip=6pt]{caption}
+\newcommand{\takeaway}[1]{\textbf{#1}}
+\newcommand{\figsource}[1]{\par{\color{stone}\footnotesize Source: #1}}
+
+% ---- Footnotes -------------------------------------------------------------
+\usepackage[hang, flushmargin]{footmisc}
+\renewcommand{\footnotelayout}{\setstretch{1.05}}
+
+% ---- Bibliography ---------------------------------------------------------
+\usepackage[backend=biber, style=authoryear, maxcitenames=2,
+            maxbibnames=10, uniquelist=false, dashed=false,
+            doi=true, url=true, isbn=false, eprint=false,
+            date=year, urldate=long]{biblatex}
+\addbibresource{references.bib}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+\DeclareFieldFormat{url}{\url{#1}}
+\renewcommand*{\bibfont}{\small\setstretch{1.08}}
+\setlength{\bibitemsep}{0.45\baselineskip}
+
+% ---- Links and metadata ---------------------------------------------------
+\usepackage[hyperfootnotes=true, hypertexnames=false]{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=indigo, citecolor=indigo, urlcolor=clay!85!ink,
+  pdftitle={\papertitle},
+  pdfauthor={\paperauthorplain},
+  pdfsubject={Scarcity as a mode of innovation},
+  pdfkeywords={scarcity, frugal innovation, reverse innovation, constraints,
+               off-grid solar, mobile money, leapfrogging},
+  pdfcreator={LuaLaTeX},
+  pdflang={en-US},
+  bookmarksnumbered=true,
+}
+\urlstyle{same}
+\usepackage[nameinlink, noabbrev]{cleveref}
+\crefname{figure}{Figure}{Figures}
+\crefname{table}{Table}{Tables}
+\crefname{section}{Section}{Sections}
+
+% ---- Small conveniences ---------------------------------------------------
+\newcommand{\eg}{e.g.\@\xspace}
+\newcommand{\ie}{i.e.\@\xspace}
+\usepackage{xspace}
+% Lining figures inside running text where they sit next to sans numerals.
+\newcommand{\lnum}[1]{{\liningserif #1}}

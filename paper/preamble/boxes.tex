@@ -1,0 +1,75 @@
+% boxes.tex — the recurring components.
+%   abstractbox   boxed abstract on the title page
+%   pullquote     large italic quote with an indigo left rule
+%   keyidea       amber box: the claim, stated plainly
+%   counterpoint  clay box: the best objection, stated fairly
+%   glancebox     panels on the At a Glance page
+
+\tcbset{
+  scarcity base/.style={
+    enhanced, breakable,
+    boxrule=0pt, arc=0pt, outer arc=0pt, frame hidden,
+    left=10pt, right=10pt, top=8pt, bottom=8pt,
+    before skip=12pt plus 2pt, after skip=12pt plus 2pt,
+    fonttitle=\sffamily\bfseries\footnotesize,
+    coltitle=ink,
+  },
+}
+
+\newtcolorbox{abstractbox}{
+  scarcity base,
+  colback=indigowash,
+  borderline north={0.8pt}{0pt}{indigo},
+  borderline south={0.8pt}{0pt}{indigo},
+  left=16pt, right=16pt, top=12pt, bottom=12pt,
+  title={\textls[120]{\MakeUppercase{Abstract}}},
+  attach title to upper={\par\smallskip},
+  fontupper=\small,
+}
+
+\newtcolorbox{pullquote}[1][]{
+  scarcity base,
+  interior hidden,
+  borderline west={2.5pt}{0pt}{indigo},
+  left=14pt, top=2pt, bottom=2pt,
+  fontupper=\large\itshape\color{indigo},
+  before upper={\setstretch{1.2}},
+  #1
+}
+% Optional attribution line inside a pullquote.
+\newcommand{\quotesource}[1]{\par\smallskip{\upshape\normalsize\sffamily\color{stone}--- #1}}
+
+\newtcolorbox{keyidea}[1][]{
+  scarcity base,
+  colback=amberwash,
+  borderline west={3pt}{0pt}{amber},
+  title={\textcolor{amber!70!ink}{\textls[120]{\MakeUppercase{Key idea}}}},
+  attach title to upper={\par\smallskip},
+  #1
+}
+
+\newtcolorbox{counterpoint}[1][]{
+  scarcity base,
+  colback=claywash,
+  borderline west={3pt}{0pt}{clay},
+  title={\textcolor{clay}{\textls[120]{\MakeUppercase{Counterpoint}}}},
+  attach title to upper={\par\smallskip},
+  #1
+}
+
+\newtcolorbox{glancebox}[2][]{
+  scarcity base, breakable=false,
+  colback=paper,
+  before skip=0pt, after skip=8pt,
+  before upper={\raggedright},
+  borderline north={1.5pt}{0pt}{#2},
+  left=10pt, right=10pt,
+  fontupper=\small,
+  #1
+}
+
+% Placeholders and to-dos. Both render visibly in drafts; `make final`
+% refuses to build while any remain in the source.
+% They are plain coloured text rather than boxes so long ones wrap.
+\newcommand{\placeholder}[1]{{\sffamily\footnotesize\color{clay}[#1]}}
+\newcommand{\todo}[1]{{\sffamily\footnotesize\bfseries\color{amber!80!ink}[TODO: #1]}}
